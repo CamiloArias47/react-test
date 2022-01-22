@@ -1,10 +1,18 @@
-import { useUI } from "context/UIcontext";
+import { useUI, MODAL_VIEW } from "context/UIcontext";
+import Modal from "components/windowsUi/modal"
 import Login from "components/login"
+import Register from "components/register";
 
 const ModalView = () => {
-    const { displayModal } = useUI();
+    const { displayModal, modalView } = useUI();
 
-    return displayModal ? <Login/> : null
+    return displayModal ? (
+        <Modal>
+            { modalView === MODAL_VIEW.login    && <Login /> }
+            { modalView === MODAL_VIEW.register && <Register/> }
+        </Modal>
+    ) 
+    : null
 }
 
 

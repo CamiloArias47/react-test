@@ -4,10 +4,13 @@ import { COLOR } from './theme'
 export const globalStyles = css.global`
 
     body{
-        background : ${COLOR.dark}
+        background : ${COLOR.dark};
+        position: relative;
     }
 
     .btn-shine{
+        border: none;
+        color: white;
         border-radius: 5rem;
         position: relative;
         background: #0e0e0e;

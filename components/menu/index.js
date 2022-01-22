@@ -1,9 +1,29 @@
+import { useEffect } from 'react'
+import { useUI } from 'context/UIcontext'
 import Img from 'next/image'
 import logoMenu from 'public/images/logos/logo-menu.svg'
 import SandwichBtn from './sandwichbtn'
 import style from './style'
 
 export default function Menu(){
+
+    const { openModal, displayModal, activateScroll, uName } = useUI()
+
+    useEffect( () => {
+        activateScroll(displayModal)
+    },[displayModal])
+
+    const nameOrLogin = uName === '' ? (
+        <button 
+            className='btn-shine'
+            onClick={openModal}
+        >
+            Login
+        </button>
+    ) 
+    : uName
+    
+
     return(
         <nav>
             <div className='wraper-nav'>
@@ -23,7 +43,7 @@ export default function Menu(){
                             <a>BENEFICIOS</a>
                         </li>
                         <li>
-                            <a className='btn-shine'>Login</a>
+                            { nameOrLogin }
                         </li>
                     </ul>
                     <SandwichBtn />

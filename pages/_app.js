@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <UiContextProvider>
         <Head/>
-        <div>
+        <div className='landingpage'>
           <Menu/>
           <Component {...pageProps} />
           <UiWindows />

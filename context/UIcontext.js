@@ -1,8 +1,20 @@
 import React, { useCallback, useMemo } from 'react'
+import userLogo from 'public/images/user.svg'
+import userAvatarLoading from 'public/images/loaders/UserAvatarLoader.svg'
+
+export const MODAL_VIEW = {
+    login : 1,
+    register : 2
+}
 
 const initialstate = {
     displayModal : false,
-    loged : false
+    modalView : MODAL_VIEW.login,
+    loged : false,
+    avtr :userAvatarLoading,
+    uName : '',
+    email : '',
+    uid : ''
 }
 
 
@@ -26,8 +38,27 @@ function uiReducer( state, action){
               }
         }
         case 'login-susscessful' : {
+
+            let avtr  = userLogo,
+                uName = '', 
+                email = '', 
+                uid   = ''
+
+            if(action.user){
+                const user = action.user.user
+
+                avtr  = user.photoURL ?? 'https://picsum.photos/62/62'
+                uName = user.displayName ?? user.email
+                email = user.email
+                uid   = user.uid
+            } 
+            
             return {
                 ...state,
+                avtr,
+                uName,
+                email,
+                uid,
                 loged: true,
               }
         }
@@ -35,6 +66,12 @@ function uiReducer( state, action){
             return {
                 ...state,
                 loged: false,
+              }
+        }
+        case 'set-modal-view' : {
+            return {
+                ...state,
+                modalView : action.view
               }
         }
     }
@@ -53,13 +90,22 @@ export const UIProvider = (props) => {
         dispatch( { type: 'close-modal' } )
     }, [dispatch]) 
 
-    const loginSuccess = useCallback( () => { 
-        dispatch( { type: 'login-susscessful' } )
+    const loginSuccess = useCallback( (user) => { 
+        dispatch( { type: 'login-susscessful', user } )
     }, [dispatch]) 
 
     const logout = useCallback( () => { 
         dispatch( { type: 'logout' } )
     }, [dispatch]) 
+
+    const activateScroll = useCallback( open => {
+            document.getElementsByTagName("html")[0].style.overflow = (open) ? "hidden" : "auto"
+        }
+    )
+
+    const setModalView = useCallback( view => {
+        dispatch( { type:'set-modal-view', view})
+    }, [dispatch])
 
     const value = useMemo(
         () => ({
@@ -67,7 +113,9 @@ export const UIProvider = (props) => {
           openModal,
           closeModal,
           loginSuccess,
-          logout
+          logout,
+          activateScroll,
+          setModalView
         }),
         [state]
       )

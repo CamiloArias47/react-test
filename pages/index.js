@@ -2,6 +2,9 @@ import Image from 'next/image'
 import world from 'public/images/background/Imagen_AI-1.png'
 import welcomeName from 'public/images/logos/name-welcome.svg'
 import americaPromo from 'public/images/promo/imageBig.png'
+import instagramIcon from "public/images/logos/instagram.svg";
+import logoFooter from 'public/images/logos/logoFooter.svg'
+import Slider from 'components/slider'
 import style from 'styles/style-landing'
 
 const bgWorld = { backgroundImage: `url('${world}')` }
@@ -43,6 +46,42 @@ export default function Home() {
             </div>
         </div> 
       </section>
+
+      <section className='slider-section'>
+        <div className='wraper-slider'>
+            <div className='slider-text'>
+              <h1>
+                <span>Entre los <span className='profits'>beneficios</span> que</span>
+                <span>
+                  <span className='give'>ofrecemos</span> se encuentran
+                </span>
+              </h1>
+            </div>
+            <Slider />
+        </div>
+      </section>
+
+      <section className='instagram-section'>
+        <h1>
+          <span>
+            Gracias por&nbsp;
+            <span className="destacado">completar el ejercicio </span>
+          </span>
+          <span className='dim-text'>Te invitamos a ver más información</span>
+        </h1>
+        <div className='instagran-link-container'>
+          <Image src={instagramIcon}/>
+          <a className='btn-more'>
+            Conocer más
+          </a>
+        </div>
+      </section>
+
+      <footer>
+        <Image
+          src={ logoFooter }
+        />
+      </footer>
 
       <style jsx>{ style }</style>
     </main>

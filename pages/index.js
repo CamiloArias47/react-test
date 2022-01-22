@@ -70,8 +70,10 @@ export default function Home() {
           <span className='dim-text'>Te invitamos a ver más información</span>
         </h1>
         <div className='instagran-link-container'>
-          <Image src={instagramIcon}/>
-          <a className='btn-more'>
+          <a href="https://www.instagram.com/waconomads/" target="_blank">
+            <Image src={instagramIcon}/>
+          </a>
+          <a className='btn-more' href="https://wacoservices.com/" target="_blank" >
             Conocer más
           </a>
         </div>

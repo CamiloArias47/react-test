@@ -10,11 +10,26 @@ import FruisIcon from 'public/images/slider/fruits.svg'
 import style from "./style"
 
 const ITEMS = [
-    {image : <Image src={ ClockIcon } width={160}/>, text : 'FLexibilidad Horaria' },
-    {image : <Image src={ HomeOffice } width={160}/>, text : 'Home Office' },
-    {image : <Image src={ Workshops } width={160} />, text : 'Capacitaciones y Workshops' },
-    {image : <Image src={ FruisIcon } width={160} /> , text : 'Snacks, frutas y bebidas gratis' },
-    {image : <Image src={ ClockIcon } width={160} className='slide-desk'/>, text : 'FLexibilidad Horaria' },
+    { 
+     image : <Image src={ ClockIcon } width={160} alt="slider image"/>,
+     text : 'FLexibilidad Horaria' 
+    },
+    { 
+     image : <Image src={ HomeOffice } width={160}alt="slider image"/>,
+     text : 'Home Office' 
+    },
+    { 
+     image : <Image src={ Workshops } width={160} alt="slider image"/>,
+     text : 'Capacitaciones y Workshops' 
+    },
+    { 
+      image : <Image src={ FruisIcon } width={160} alt="slider image"/>,
+      text : 'Snacks, frutas y bebidas gratis' 
+    },
+    { 
+      image : <Image src={ ClockIcon } width={160} className='slide-desk' alt="slider image"/>, 
+      text : 'FLexibilidad Horaria' 
+    },
 ]
 
 const BTN = {

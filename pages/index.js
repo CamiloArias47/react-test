@@ -22,6 +22,7 @@ export default function Home() {
           </h1>
           <Image 
             src={welcomeName}
+            alt="logo welcome"
           />
         </div>
       </section>
@@ -32,6 +33,7 @@ export default function Home() {
               <div className='gradient-image'>
                 <Image 
                   src={ americaPromo }
+                  alt="landing page ejemplo"
                 />
               </div>
               <div className='gradient-text'>
@@ -70,10 +72,10 @@ export default function Home() {
           <span className='dim-text'>Te invitamos a ver más información</span>
         </h1>
         <div className='instagran-link-container'>
-          <a href="https://www.instagram.com/waconomads/" target="_blank">
-            <Image src={instagramIcon}/>
+          <a href="https://www.instagram.com/waconomads/" target="_blank" rel="noreferrer">
+            <Image src={instagramIcon} alt="Intagram Icon"/>
           </a>
-          <a className='btn-more' href="https://wacoservices.com/" target="_blank" >
+          <a className='btn-more' href="https://wacoservices.com/" target="_blank" rel="noreferrer">
             Conocer más
           </a>
         </div>
@@ -82,6 +84,7 @@ export default function Home() {
       <footer>
         <Image
           src={ logoFooter }
+          alt="Logo footer"
         />
       </footer>
 

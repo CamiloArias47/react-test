@@ -1,4 +1,5 @@
 import { useUI } from "context/UIcontext";
+import Login from "components/login"
 
 const ModalView = () => {
     const { displayModal } = useUI();

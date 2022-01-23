@@ -45,9 +45,9 @@ function uiReducer( state, action){
                 uid   = ''
 
             if(action.user){
-                const user = action.user.user
+                const user = action.user
 
-                avtr  = user.photoURL ?? 'https://picsum.photos/62/62'
+                avtr  = (user.photoURL) ? user.photoURL : 'https://picsum.photos/62/62'
                 uName = user.displayName ?? user.email
                 email = user.email
                 uid   = user.uid
@@ -65,6 +65,10 @@ function uiReducer( state, action){
         case 'logout' : {
             return {
                 ...state,
+                avtr  : userLogo,
+                uName : '', 
+                email : '', 
+                uid   : '',
                 loged: false,
               }
         }
@@ -94,7 +98,7 @@ export const UIProvider = (props) => {
         dispatch( { type: 'login-susscessful', user } )
     }, [dispatch]) 
 
-    const logout = useCallback( () => { 
+    const exitSession = useCallback( () => { 
         dispatch( { type: 'logout' } )
     }, [dispatch]) 
 
@@ -113,7 +117,7 @@ export const UIProvider = (props) => {
           openModal,
           closeModal,
           loginSuccess,
-          logout,
+          exitSession,
           activateScroll,
           setModalView
         }),

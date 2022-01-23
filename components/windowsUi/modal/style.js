@@ -1,5 +1,5 @@
 import css from 'styled-jsx/css'
-import { COLOR } from 'styles/theme'
+import { COLOR, MEDIAQUERY } from 'styles/theme'
 
 export default css`
 .modal-block{
@@ -17,10 +17,28 @@ export default css`
 }
 
 .modal-frame{
-    width: 50%;
+    width: 95%;
     padding: 1rem;
-    border-radius: 5rem;
+    border-radius: 15px;
     background: ${ COLOR.dark };
+    position:relative;
+    z-index:1;
+    color: ${ COLOR.white };
+}
+
+.close-btn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    width: 32px;
+    height: 32px;
+}
+
+@media (min-width: ${MEDIAQUERY.minWidth} ){
+    .modal-frame{
+        width: 50%;
+    }
 }
 
 `

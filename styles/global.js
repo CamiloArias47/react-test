@@ -17,6 +17,7 @@ export const globalStyles = css.global`
         padding: 0.2rem 1rem;
         display: flex;
         align-items: center;
+        justify-content : center;
     }
     
     .btn-shine::before {

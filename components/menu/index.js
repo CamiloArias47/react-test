@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useUI } from 'context/UIcontext'
+import { logout } from 'firebaseconf/auth/logout'
 import Img from 'next/image'
 import logoMenu from 'public/images/logos/logo-menu.svg'
 import SandwichBtn from './sandwichbtn'
@@ -7,11 +8,15 @@ import style from './style'
 
 export default function Menu(){
 
-    const { openModal, displayModal, activateScroll, uName } = useUI()
+    const { openModal, displayModal, activateScroll, uName, exitSession } = useUI()
 
     useEffect( () => {
         activateScroll(displayModal)
     },[displayModal])
+
+    const handlerLogout = ()=>{
+        logout().then( exitSession() )
+    }
 
     const nameOrLogin = uName === '' ? (
         <button 
@@ -21,7 +26,7 @@ export default function Menu(){
             Login
         </button>
     ) 
-    : uName
+    : <div>{uName} - <button onClick={handlerLogout}>Salir</button></div>
     
 
     return(
@@ -46,7 +51,7 @@ export default function Menu(){
                             { nameOrLogin }
                         </li>
                     </ul>
-                    <SandwichBtn />
+                    <SandwichBtn handlerClick={openModal}/>
                 </div>
             </div>
             <style jsx>{style}</style>

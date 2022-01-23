@@ -2,6 +2,7 @@ export const COLOR = {
     white : '#fff',
     dark : '#0E0E0E',
     line : '#232323',
+    dimLine : '#23232357',
     green : '#00FF68',
     green2 : '#00E6E3',
     gradient : 'linear-gradient(270deg, #00FF68 30%, #00E6E3 100%)',

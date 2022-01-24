@@ -9,6 +9,7 @@ nav{
     padding : 2rem 0;
     max-height: 10rem;
     z-index: 10;
+    transition: background 500ms ease;
 }
 
 .wraper-nav{
@@ -22,6 +23,10 @@ nav{
 
 ul.desktop-menu{
     display:none
+}
+
+.bg-dark{
+    background: ${ COLOR.dark };
 }
 
 

@@ -8,7 +8,7 @@ import style from './style'
 
 export default function MenuLanding(){
 
-    const { openModal, displayModal, activateScroll, uName, exitSession } = useUI()
+    const { openModal, displayModal, activateScroll, uName, exitSession, navWithBg } = useUI()
 
     useEffect( () => {
         activateScroll(displayModal)
@@ -30,7 +30,7 @@ export default function MenuLanding(){
     
 
     return(
-        <nav>
+        <nav className={navWithBg ? 'bg-dark' : ''}>
             <div className='wraper-nav'>
                 <div>
                     <Img

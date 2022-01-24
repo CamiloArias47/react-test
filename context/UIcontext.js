@@ -11,6 +11,7 @@ export const MODAL_VIEW = {
 const initialstate = {
     displayModal : false,
     modalView : MODAL_VIEW.login,
+    navWithBg : false,
     loged : false,
     avtr :'https://picsum.photos/62/62',
     uName : '',
@@ -79,6 +80,12 @@ function uiReducer( state, action){
                 modalView : action.view
               }
         }
+        case 'set-nav-bg' : {
+            return {
+                ...state,
+                navWithBg : action.setcolor
+              }
+        }
     }
 }
 
@@ -112,6 +119,11 @@ export const UIProvider = (props) => {
         dispatch( { type:'set-modal-view', view})
     }, [dispatch])
 
+    const setNavBG = useCallback( setcolor => {
+        dispatch( { type:'set-nav-bg', setcolor})
+    }, [dispatch])
+    
+
     const value = useMemo(
         () => ({
           ...state,
@@ -120,7 +132,8 @@ export const UIProvider = (props) => {
           loginSuccess,
           exitSession,
           activateScroll,
-          setModalView
+          setModalView,
+          setNavBG
         }),
         [state]
       )

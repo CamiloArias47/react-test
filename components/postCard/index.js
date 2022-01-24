@@ -34,8 +34,8 @@ export default function PostCard({title, body, id, uid}) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={ handlerClick }>Editar</Button>
-        <Button size="small" onClick={ handlerDeleteButton }>Eliminar</Button>
+        <Button size="small" variant="outlined" onClick={ handlerClick }>Editar</Button>
+        <Button size="small" variant="outlined" color="error" onClick={ handlerDeleteButton }>Eliminar</Button>
       </CardActions>
     </Card>
   );

@@ -27,6 +27,7 @@ export const PostProvider = props => {
         fetch(`${ apiUrl }/api/users/${ uid }/post`)
             .then( res => res.json() )
             .then( posts => {
+                const userPost = posts.data.reverse()
                 setPostProvider(posts.data)
             })
     },[])
@@ -46,7 +47,7 @@ export const PostProvider = props => {
         return useFetcherApi(config)
             .then( data => {
                 const saved = data.data
-                const newPosts = [...posts, saved ]
+                const newPosts = [saved, ...posts]
                 setPostProvider(newPosts)
                 return true
             })

@@ -48,7 +48,7 @@ export default function MenuDashboard(){
 
     return(
         <DashboardThemeProvider>
-            <AppBar position="static">
+            <AppBar position="sticky">
                 <Toolbar>
                     <Box sx={ desing }>
                         <Box >

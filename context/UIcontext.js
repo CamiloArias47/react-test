@@ -13,7 +13,7 @@ const initialstate = {
     displayModal : false,
     modalView : MODAL_VIEW.login,
     loged : false,
-    avtr :userAvatarLoading,
+    avtr :'',
     uName : '',
     email : '',
     uid : ''

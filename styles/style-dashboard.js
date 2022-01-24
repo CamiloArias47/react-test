@@ -17,10 +17,10 @@ export default css`
     .dashboard-content{
         width: ${ GAP.fromFrameDesk };
         margin : auto;
+        min-height:60rem;
     }
     .post-list{
         grid-template-columns: 1fr 1fr 1fr;
-        min-height:50rem;
     }
 }
 `

@@ -4,6 +4,7 @@ import { usePosts } from "context/PostContext";
 import { useUI, MODAL_VIEW } from 'context/UIcontext'
 import PostCard from 'components/postCard'
 import Button from '@mui/material/Button';
+import Footer from "components/footer";
 import style from 'styles/style-dashboard'
 import { useEffect } from "react";
 
@@ -44,6 +45,7 @@ const Dashboard = () => {
                         }
                     </div>
                 </div>
+                <Footer/>
                 <style jsx>{ style }</style>
             </DashboardThemeProvider>
     )

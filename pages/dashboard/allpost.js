@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import withAuth from "HOC/withAuth.js";
+import Footer from "components/footer";
 import { fetcherApi } from 'services/fetcher'
 import throttle from 'just-throttle';
 import useNearScreen from 'hooks/useNeearScreen'
@@ -69,6 +70,8 @@ const Dashboard = () => {
                 </div>
 
                 <div ref={ fromRef } ></div>
+
+                <Footer />
 
                 <style jsx>{ style }</style>
             </DashboardThemeProvider>

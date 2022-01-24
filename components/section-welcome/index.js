@@ -4,7 +4,7 @@ import style from './style'
 
 export default function SectionWelcome(){
     return(
-        <section className='welcome-section' >
+        <section className='welcome-section' id="welcome">
         <div className='welcome-text'>
           <h1>
             <span >Bienvenido a tu </span>

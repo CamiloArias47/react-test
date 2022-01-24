@@ -3,7 +3,7 @@ import Slider from 'components/slider'
 
 export default function SectionSlider(){
     return(
-        <section className='slider-section'>
+        <section className='slider-section' id="beneficios">
             <div className='wraper-slider'>
                 <div className='slider-text'>
                 <h1>

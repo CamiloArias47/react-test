@@ -30,6 +30,14 @@ const ITEMS = [
       image : <Image src={ ClockIcon } width={160} className='slide-desk' alt="slider image"/>, 
       text : 'FLexibilidad Horaria' 
     },
+    { 
+       image : <Image src={ ClockIcon } width={160} className='slide-desk' alt="slider image"/>, 
+       text : 'FLexibilidad Horaria' 
+    },
+    { 
+       image : <Image src={ ClockIcon } width={160} className='slide-desk' alt="slider image"/>, 
+       text : 'FLexibilidad Horaria' 
+    },
 ]
 
 const BTN = {

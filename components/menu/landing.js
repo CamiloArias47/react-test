@@ -42,10 +42,10 @@ export default function MenuLanding(){
                 <div>
                     <ul className='desktop-menu'>
                         <li>
-                            <a>INICIO</a>
+                            <a href='#welcome'>INICIO</a>
                         </li>
                         <li>
-                            <a>BENEFICIOS</a>
+                            <a href='#beneficios'>BENEFICIOS</a>
                         </li>
                         <li>
                             { nameOrLogin }

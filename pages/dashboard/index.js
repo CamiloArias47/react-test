@@ -25,8 +25,9 @@ const Dashboard = () => {
     return(
             <DashboardThemeProvider>
                 <div className="dashboard-content">
+                    <h1>Todos mis post</h1>
                     <div className="utilities-bar">
-                         <Button variant="contained" onClick={ handlerClickCreate }>Crear Post</Button>
+                         <Button variant="contained" color="secondary" size="large" onClick={ handlerClickCreate }>Crear Post</Button>
                     </div>
                     <div className="post-list">
                         { 

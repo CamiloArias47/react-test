@@ -1,8 +1,8 @@
 import {apiUrl} from 'services/conf'
 
-export const useFetcherApi = ({route, config = {} }) => {
+export const fetcherApi = ({route, config = {}, fullRoute = false}) => {
     
-    const url = apiUrl+''+route
+    const url = fullRoute ? route : apiUrl+''+route
 
     if(config.method === 'POST' || config.method === 'PUT'){
         config = { ...config, headers:{ 'Content-Type': 'application/json'} }

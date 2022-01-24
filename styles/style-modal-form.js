@@ -46,6 +46,10 @@ form textarea:focus-visible{
     box-shadow: 0px 0px 5px 2px rgb(1 255 47 / 50%);
 }
 
+.btn-primary:hover{
+    box-shadow: 0px 0px 11px 5px rgb(1 255 47 / 50%);
+}
+
 .modal-footer{
     padding-top : 2rem;
     width:100%;

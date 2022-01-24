@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 
 export default function PostCard({title, body, id, uid}) {
   const { setPostsToEdit, deletePost } = usePosts()
-  const { openModal, setModalView } = useUI()
+  let { openModal, setModalView, uid : user } = useUI()
   
   const handlerClick = () => {
     const editPost = {title, body, id, uid}
@@ -34,8 +34,15 @@ export default function PostCard({title, body, id, uid}) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" variant="outlined" onClick={ handlerClick }>Editar</Button>
-        <Button size="small" variant="outlined" color="error" onClick={ handlerDeleteButton }>Eliminar</Button>
+        {
+          user === uid ? (
+            <>
+              <Button size="small" variant="outlined" onClick={ handlerClick }>Editar</Button>
+              <Button size="small" variant="outlined" color="error" onClick={ handlerDeleteButton }>Eliminar</Button>
+            </>
+          ) 
+          : '' 
+        }
       </CardActions>
     </Card>
   );

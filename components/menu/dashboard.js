@@ -1,11 +1,17 @@
+import { useState } from 'react'
 import { useUI } from 'context/UIcontext'
-import DashboardThemeProvider from 'components/dashboard-container'
+import { logout } from 'firebaseconf/auth/logout'
 import Image from 'next/image'
+import DashboardThemeProvider from 'components/dashboard-container'
 import Link from 'next/link'
 import Box from '@mui/material/Box';
+import Avatar from '@mui/material/Avatar';
 import logoMenu from 'public/images/logos/logo-menu.svg'
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import style from './style-dashboard'
 
 const desing = {  
@@ -26,8 +32,19 @@ const desing2 = {
 
 export default function MenuDashboard(){
 
-    const { uName } = useUI()
+    const [anchorEl, setAnchorEl] = useState(null);
+    const open = Boolean(anchorEl);
+    const { uName, exitSession, avtr } = useUI()
 
+    const handlerLogout = ()=>{
+        logout().then( exitSession() )
+    }
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
 
     return(
         <DashboardThemeProvider>
@@ -42,10 +59,36 @@ export default function MenuDashboard(){
                             </Link>
                         </Box>
                         <Box sx={desing2}>
+                            <Button variant='text' color='info'>
+                                <Link href="/dashboard/allpost">
+                                    <a>Todos los Post</a>
+                                </Link>
+                            </Button>
                             <div className='user'>
-                                {uName}
+                                
+                                <Avatar alt={uName} src={avtr} 
+                                    aria-controls={open ? 'basic-menu' : undefined}
+                                    aria-haspopup="true"
+                                    aria-expanded={open ? 'true' : undefined}
+                                    onClick={handleClick}
+                                />
+                                <Menu
+                                    id="basic-menu"
+                                    anchorEl={anchorEl}
+                                    open={open}
+                                    onClose={handleClose}
+                                    MenuListProps={{
+                                    'aria-labelledby': 'basic-button',
+                                    }}
+                                >
+                                    <MenuItem onClick={handleClose}>
+                                        <Link href="/dashboard">
+                                            <a>Mis Post</a>
+                                        </Link>
+                                    </MenuItem>
+                                    <MenuItem onClick={handlerLogout}>Salir</MenuItem>
+                                </Menu>
                             </div>
-                            <a>Salir</a>
                         </Box>
                     </Box>
                 </Toolbar>

@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useMemo } from 'react'
 import {apiUrl} from 'services/conf'
-import { useFetcherApi } from 'services/fetcher'
+import { fetcherApi } from 'services/fetcher'
 
 const initialstate = {
     posts : [],
@@ -27,8 +27,9 @@ export const PostProvider = props => {
         fetch(`${ apiUrl }/api/users/${ uid }/post`)
             .then( res => res.json() )
             .then( posts => {
+                console.log({posts})
                 const userPost = posts.data.reverse()
-                setPostProvider(posts.data)
+                setPostProvider(userPost)
             })
     },[])
 
@@ -44,7 +45,7 @@ export const PostProvider = props => {
             }
         }
 
-        return useFetcherApi(config)
+        return fetcherApi(config)
             .then( data => {
                 const saved = data.data
                 const newPosts = [saved, ...posts]
@@ -67,7 +68,7 @@ export const PostProvider = props => {
             }
         }
 
-        return useFetcherApi(config)
+        return fetcherApi(config)
             .then( data => {
                 const updated = data.data
                 const position = posts.findIndex( p => p.id === id)
@@ -90,7 +91,7 @@ export const PostProvider = props => {
             config : { method: 'DELETE' }
         }
 
-        return useFetcherApi(config)
+        return fetcherApi(config)
             .then( data => {
                 console.log('delete...')
                 console.log({data})

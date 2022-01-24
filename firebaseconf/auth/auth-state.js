@@ -8,5 +8,8 @@ export const authChanged = onChange => {
         if(user){
             onChange(user)
         }
+        else{
+            onChange(false)
+        }
     });
 } 

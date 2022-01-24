@@ -17,7 +17,8 @@ form{
     flex-direction: column;
     width:100%;
 }
-form input{
+form input,
+form textarea{
     width: 100%;
     margin-bottom: 0.5rem;
     padding: 1rem;
@@ -27,7 +28,8 @@ form input{
     background : ${ COLOR.dark };
     color: ${ COLOR.white };
 }
-form input:focus-visible{
+form input:focus-visible,
+form textarea:focus-visible{
     outline : none;
 }
 

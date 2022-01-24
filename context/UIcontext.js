@@ -4,7 +4,9 @@ import userAvatarLoading from 'public/images/loaders/UserAvatarLoader.svg'
 
 export const MODAL_VIEW = {
     login : 1,
-    register : 2
+    register : 2,
+    createPost : 3,
+    updatePost : 4
 }
 
 const initialstate = {

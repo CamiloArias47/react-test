@@ -41,4 +41,10 @@ export default css`
     }
 }
 
+@media (min-width: ${MEDIAQUERY.mediumWidth} ){
+    .modal-frame{
+        width: 35%;
+    }
+}
+
 `

@@ -1,11 +1,15 @@
 import css from 'styled-jsx/css'
-import { COLOR } from './theme'
+import { COLOR, GAP } from './theme'
 
 export const globalStyles = css.global`
 
     body{
         background : ${COLOR.dark};
         position: relative;
+    }
+
+    .dashboard-content{
+        padding-top:1rem;
     }
 
     .btn-shine{

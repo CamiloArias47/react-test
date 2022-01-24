@@ -39,6 +39,10 @@ export default css`
     margin-left: 1.5rem;
 }
 
+.instagram-section .btn-more:hover{
+    box-shadow: 0px 0px 11px 5px rgb(1 255 47 / 50%);
+}
+
 .instagram-section .instagran-link-container{
     display: flex;
     align-items: center;

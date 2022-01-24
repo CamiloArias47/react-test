@@ -1,4 +1,5 @@
 import { UiContextProvider } from 'context/UIcontext'
+import { PostContextProvider } from 'context/PostContext'
 import Head from 'components/head'
 import Menu from 'components/menu'
 import { UiWindows } from 'components/windowsUi'
@@ -11,11 +12,13 @@ function MyApp({ Component, pageProps }) {
     <>
       <UiContextProvider>
         <Head/>
-        <div className='landingpage'>
-          <Menu/>
-          <Component {...pageProps} />
-          <UiWindows />
-        </div>
+          <PostContextProvider>
+            <div className='landingpage'>
+              <Menu/>
+              <Component {...pageProps} />
+              <UiWindows />
+            </div>
+          </PostContextProvider>
       </UiContextProvider>
       <style jsx global>{globalStyles}</style>
     </>

@@ -17,5 +17,6 @@ export const GAP = {
 }
 
 export const MEDIAQUERY = {
-    minWidth : '768px'
+    minWidth : '768px',
+    mediumWidth : '1024px'
 }

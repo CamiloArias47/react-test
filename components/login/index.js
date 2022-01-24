@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 import { useUI, MODAL_VIEW} from 'context/UIcontext'
 import Image from 'next/image'
 import { loginGoogle} from 'firebaseconf/auth/login-google'
@@ -7,6 +8,7 @@ import googleLogo from 'public/images/logos/google.svg'
 import style from 'styles/style-modal-form'
 
 export default function Login(){
+    const router = useRouter()
     const [ password, setPassword ] = useState('')
     const [ email, setEmail ] = useState('')
     const [ error, setError ] = useState('')
@@ -16,11 +18,7 @@ export default function Login(){
     /**Google login */
     const handlerLoginGoogle = () => {
         loginGoogle()
-            .then( result => { 
-                console.log({google: result.user})
-                loginSuccess(result.user)
-                closeModal()
-            })
+            .then( result => { handlerSuccessLogin(result.user) })
             .catch( error => {
                 console.log({error})
             })
@@ -30,15 +28,18 @@ export default function Login(){
         event.preventDefault()
         if(password !== '' && email !== ''){
             login({email, password})
-                .then( user => {
-                    loginSuccess(user)
-                    closeModal()
-                })
+                .then( handlerSuccessLogin )
                 .catch( error => {
                     console.log({error})
                     setError(error.message)
                 })
         }
+    }
+
+    const handlerSuccessLogin = user => {
+        loginSuccess(user)
+        closeModal()
+        router.replace("/dashboard");
     }
 
     const handlerInput = event => {

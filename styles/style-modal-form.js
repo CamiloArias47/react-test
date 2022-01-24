@@ -17,7 +17,8 @@ form{
     flex-direction: column;
     width:100%;
 }
-form input{
+form input,
+form textarea{
     width: 100%;
     margin-bottom: 0.5rem;
     padding: 1rem;
@@ -27,7 +28,8 @@ form input{
     background : ${ COLOR.dark };
     color: ${ COLOR.white };
 }
-form input:focus-visible{
+form input:focus-visible,
+form textarea:focus-visible{
     outline : none;
 }
 
@@ -42,6 +44,10 @@ form input:focus-visible{
     border-radius: 10px;
     color: white;
     box-shadow: 0px 0px 5px 2px rgb(1 255 47 / 50%);
+}
+
+.btn-primary:hover{
+    box-shadow: 0px 0px 11px 5px rgb(1 255 47 / 50%);
 }
 
 .modal-footer{

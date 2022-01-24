@@ -1,11 +1,15 @@
 import css from 'styled-jsx/css'
-import { COLOR } from './theme'
+import { COLOR, GAP } from './theme'
 
 export const globalStyles = css.global`
 
     body{
         background : ${COLOR.dark};
         position: relative;
+    }
+
+    .dashboard-content{
+        padding-top:1rem;
     }
 
     .btn-shine{
@@ -32,6 +36,10 @@ export const globalStyles = css.global`
         border-radius: inherit;
         background: ${ COLOR.gradient };
         box-shadow: 0px 0px 5px 2px rgb(1 255 47 / 50%);
+    }
+
+    .btn-shine:hover {
+        box-shadow: 0px 0px 11px 5px rgb(1 255 47 / 50%);
     }
 }
 

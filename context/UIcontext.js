@@ -1,6 +1,5 @@
 import React, { useCallback, useMemo } from 'react'
 import userLogo from 'public/images/user.svg'
-import userAvatarLoading from 'public/images/loaders/UserAvatarLoader.svg'
 
 export const MODAL_VIEW = {
     login : 1,
@@ -13,7 +12,7 @@ const initialstate = {
     displayModal : false,
     modalView : MODAL_VIEW.login,
     loged : false,
-    avtr :'',
+    avtr :'https://picsum.photos/62/62',
     uName : '',
     email : '',
     uid : ''
@@ -41,7 +40,7 @@ function uiReducer( state, action){
         }
         case 'login-susscessful' : {
 
-            let avtr  = userLogo,
+            let avtr  = 'https://picsum.photos/62/62',
                 uName = '', 
                 email = '', 
                 uid   = ''
@@ -67,7 +66,7 @@ function uiReducer( state, action){
         case 'logout' : {
             return {
                 ...state,
-                avtr  : userLogo,
+                avtr  : '',
                 uName : '', 
                 email : '', 
                 uid   : '',

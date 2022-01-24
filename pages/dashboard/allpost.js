@@ -12,7 +12,7 @@ const Dashboard = () => {
 
     const [ posts, setPosts ] = useState([])
     const [ linkPrevPost, setLinkPrevPost ] = useState('')
-    const { isNearScreen, fromRef } = useNearScreen({once:false})
+    const { isNearScreen, fromRef } = useNearScreen({distance:'10px',once:false})
 
     useEffect( () => {
         fetcherApi({route:'/api/posts'})
@@ -26,7 +26,7 @@ const Dashboard = () => {
 
     useEffect( () => {
         if( isNearScreen && linkPrevPost != '' ){
-          throttleNextPage()
+            throttleNextPage()
         }
     }, [isNearScreen])
 

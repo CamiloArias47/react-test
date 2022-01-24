@@ -20,6 +20,7 @@ export default css`
     }
     .post-list{
         grid-template-columns: 1fr 1fr 1fr;
+        min-height:50rem;
     }
 }
 `
